@@ -25,7 +25,7 @@ void modify(int position ,int x,int value){
         segment_tree[x].value = value;
         return;
     }
-    int mid = segment_tree[x].left+segment_tree[x].right;
+    int mid = (segment_tree[x].left+segment_tree[x].right)/2;
     
     if(position<=mid){
         modify(position,x<<1,value);
@@ -53,6 +53,7 @@ int main(){
     int n  = nums.size();
     segment_tree.resize(n*4);
     build(0,n-1,1,nums);
+    modify(5,1,100);
     // cout << "++++++++++\n";
     for(int i =0;i<n;i++){
         for(int j = i ;j<n;j++){
