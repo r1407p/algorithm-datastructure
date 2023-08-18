@@ -3,6 +3,7 @@ using namespace std;
 
 #define maxn 200005
 vector<int> dis(maxn,-1);
+vector<int> parent(maxn,-1);
 vector<bool> vis(maxn,false);
 vector<vector<pair<int,int>>> graph;
 void dijsktra(int source){
@@ -22,6 +23,7 @@ void dijsktra(int source){
             // cout <<from<<' ' <<to<<' ' <<weight;
             if(dis[from]+weight< dis[to] || dis[to]==-1){
                 dis[to] = dis[from]+weight;
+                parent[to] = from;
                 pq.push({dis[from]+weight,to});
             }
         }
@@ -38,5 +40,8 @@ int main(){
     dijsktra(0);
     for(int i =0;i<4;i++){
         cout << dis[i]<<" ";
+    }
+    for(int i =0;i<4;i++){
+        cout << parent[i]<<" ";
     }
 }
