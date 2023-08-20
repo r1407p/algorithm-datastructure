@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int n = 9;
-int t =0, 
-vector<int> disc(n,-1), 
-vector<int> low(n,-1), 
-vector<int> parent_array(n,-1), 
-vector<bool> visited(n,false),  
+int t =0;
+vector<int> disc(n,-1);
+vector<int> low(n,-1);
+vector<int> parent_array(n,-1); 
+vector<bool> visited(n,false);  
 vector<bool> is_articulation(n,false);
 vector<vector<int>> graph; 
 void dfs_articulation(int node, int parent) {
