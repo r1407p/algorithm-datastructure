@@ -2,9 +2,9 @@
 using namespace std;
 const int n = 9;
 int t =0;
-vector<int> disc(n,-1);
-vector<int> low(n,-1);
-vector<int> parent_array(n,-1); 
+vector<int> disc(n,-1); // Discovery time
+vector<int> low(n,-1); // Low time
+vector<int> parent_array(n,-1); // Parent in DFS tree
 vector<bool> visited(n,false);  
 vector<bool> is_articulation(n,false);
 vector<vector<int>> graph; 
