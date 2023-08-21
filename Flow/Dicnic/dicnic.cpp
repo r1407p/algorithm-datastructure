@@ -20,7 +20,7 @@ struct MaxFlow{
         dis[s] = 0; 
         while (!qu.empty()) {
             int from = qu.front();
-            qu.pop(); 
+            qu.pop();
             for (auto &e: G[from]) {
                 if (dis[e.to]==-1 && e.cap != e.flow) { 
                     dis[e.to] = dis[from] + 1;
@@ -58,6 +58,28 @@ struct MaxFlow{
         }
         return flow;
     }
+    // vector<pair<int,int>> cut_edge(){
+    //     queue<int> qu;
+    //     vector<pair<int,int>> res;
+    //     qu.push(s);
+    //     vector<bool> visited(maxn,false);
+    //     visited[s] = true;
+    //     while(qu.size()){
+    //         int from = qu.front();
+    //         qu.pop();
+    //         for(auto &e:G[from]){
+    //             if(!visited[e.to]){
+    //                 if(e.cap!=0 && e.cap==e.flow){
+    //                     res.push_back({from,e.to});
+    //                 }else{
+    //                     qu.push(e.to);
+    //                     visited[e.to] = true;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return res;
+    // }
 };
 int main(){
     int n = 4,m = 6;
@@ -75,5 +97,9 @@ int main(){
         cin >>a>>b>>cap;
         maxflow.add_edge(a,b,cap);
     }
-    cout << maxflow.Maxflow(1,3);
+    cout << maxflow.Maxflow(1,3)<<endl;;
+    // auto res = maxflow.cut_edge();
+    // for(auto t:res){
+    //     cout <<t.first<<" "<<t.second<<endl;
+    // }
 }
